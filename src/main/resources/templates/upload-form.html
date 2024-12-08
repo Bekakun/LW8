@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Загрузка фото</title>
+</head>
+<body>
+<h1>Загрузка фото</h1>
+
+<form method="post" enctype="multipart/form-data" th:action="@{/upload}">
+    <label for="file">Выберите фото:</label>
+    <input type="file" id="file" name="file" required>
+    <button type="submit">Загрузить</button>
+</form>
+
+<div th:if="${message}">
+    <p th:text="${message}"></p>
+    <img th:src="${photo.imageLink}" alt="Загруженное фото" style="max-width: 300px;">
+</div>
+
+<div th:if="${error}">
+    <p th:text="${error}" style="color: red;"></p>
+</div>
+</body>
+</html>
